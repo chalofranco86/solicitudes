@@ -1,0 +1,23 @@
+<!-- templates/base.html -->
+{% load static %}  <!-- Carga la tag static al inicio -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Encabezado con imagen -->
+    <header class="header">
+        <img 
+            src="{% static 'img/redes.jpg' %}" 
+            alt="Logo del sistema" 
+            class="logo"
+        >
+    </header>
+
+    {% block content %}{% endblock %}
+
+</body>
+</html>

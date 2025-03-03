@@ -1,0 +1,105 @@
+{% extends 'solicitudes/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card card-form">
+            <div class="form-header text-center">
+                <h2 class="mb-3"><i class="bi bi-file-earmark-arrow-up"></i> Nueva Solicitud</h2>
+                <p class="lead">Completa el formulario para enviar tu solicitud sobre tu proyecto</p>
+            </div>
+
+            <div class="card-body p-4">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <!-- Campo Nombre -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Nombre del Solicitante</label>
+                        {{ form.nombre }}
+                        <small class="form-text text-muted">Ej: María González</small>
+                    </div>
+
+                    <!-- Campo Dependencia que solicita -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Dependencia que solicita</label>
+                        {{ form.dependencia_solicita }}
+                        <small class="form-text text-muted">Ej: Departamento de TI</small>
+                    </div>
+
+                    <!-- Campo Nombre del proyecto -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Nombre del proyecto</label>
+                        {{ form.nombre_proyecto }}
+                        <small class="form-text text-muted">Ej: Sistema de Gestión de Tareas</small>
+                    </div>
+
+                    <!-- Campo Responsable de la dependencia -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Responsable de la dependencia</label>
+                        {{ form.responsable_dependencia }}
+                        <small class="form-text text-muted">Ej: Juan Pérez</small>
+                    </div>
+
+                    <!-- Campo Descripción del proyecto -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Descripción del Proyecto</label>
+                        {{ form.proyecto }}
+                        <small class="form-text text-muted">Describe tu idea en detalle</small>
+                    </div>
+
+                    <!-- Campo Observaciones -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Observaciones</label>
+                        {{ form.observaciones }}
+                        <small class="form-text text-muted">Notas adicionales</small>
+                    </div>
+
+                    <!-- Campo Equipo necesario -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Equipo necesario</label>
+                        {{ form.equipo }}
+                        <small class="form-text text-muted">Ej: Laptop, Router, Impresora</small>
+                    </div>
+
+                    <!-- Campo ¿Cuentan con Internet? (usando widget de Django) -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">¿Cuentan con Internet?</label>
+                        <div class="d-flex gap-4">  <!-- Contenedor flex para alinear horizontalmente -->
+                            {% for choice in form.cuenta_con_internet %}
+                                <div class="form-check">
+                                    {{ choice.tag }}
+                                    <label class="form-check-label" for="{{ choice.id_for_label }}">
+                                        {{ choice.choice_label }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Manejo de errores -->
+                    {% if form.errors %}
+                        <div class="alert alert-danger mt-3">
+                            <strong>Error:</strong> Corrige los siguientes campos:
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+
+                    <!-- Botón de enviar -->
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-custom btn-lg">
+                            <i class="bi bi-send-check me-2"></i>Enviar Solicitud
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

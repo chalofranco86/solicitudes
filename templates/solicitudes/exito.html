@@ -1,0 +1,28 @@
+{% extends 'solicitudes/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+        <div class="card card-form">
+            <div class="form-header text-center">
+                <h2 class="mb-3"><i class="bi bi-check-circle"></i> ¡Éxito!</h2>
+            </div>
+            <div class="card-body p-5">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Solicitud recibida</h4>
+                    <p>Hemos registrado tu proyecto exitosamente.</p>
+                    <hr>
+                    <p class="mb-0">Nos pondremos en contacto contigo pronto.</p>
+                    <!-- Usa solicitud.id si no tienes campo uuid -->
+                    <a href="{% url 'descargar_pdf' uuid=solicitud.uuid %}">  <!-- ¡Parámetro correcto! -->
+                        <i class="bi bi-file-pdf"></i> Descargar PDF
+                    </a>
+                </div>
+                <a href="/solicitudes/crear/" class="btn btn-custom mt-3">
+                    <i class="bi bi-arrow-left-circle me-2"></i>Volver al formulario
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

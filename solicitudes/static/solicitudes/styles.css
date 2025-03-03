@@ -1,0 +1,47 @@
+/* styles.css */
+body {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+.card-form {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.form-header {
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    color: white;
+    padding: 2rem;
+}
+.btn-custom {
+    background: #3498db;
+    color: white;
+    transition: all 0.3s;
+}
+.btn-custom:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+.form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+.value {
+    color: #555;
+    margin: 5px 0;
+    white-space: pre-wrap;  
+}
+
+.header {
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.logo {
+    height: 80px;    
+    margin-bottom: 15px;
+}

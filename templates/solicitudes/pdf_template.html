@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* Estilos compatibles con xhtml2pdf */
+        body { 
+            font-family: Helvetica;
+            margin: 20px;
+        }
+        h1 { 
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .label {
+            font-weight: bold;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <h1>Solicitud: {{ solicitud.nombre_proyecto }}</h1>
+    
+    <div class="section">
+        <p class="label">Solicitante:</p>
+        <p>{{ solicitud.nombre }}</p>
+    </div>
+    
+    <div class="section">
+        <p class="label">Dependencia:</p>
+        <p>{{ solicitud.dependencia_solicita }}</p>
+    </div>
+
+    <div class="section">
+        <p class="label">Fecha de solicitud:</p>
+        <p>{{ solicitud.fecha }}</p>
+    </div>
+
+
+    <div class="section">
+        <p class="label">Nombre del proyecto:</p>
+        <p>{{ solicitud.nombre_proyecto }}</p>
+    </div>
+
+    <div class="section">
+        <p class="label">Descripción:</p>
+        <p>{{ solicitud.proyecto }}</p>
+    </div>
+
+    <div class="section">
+        <p class="label">Equipo necesario:</p>
+        <p>{{ solicitud.equipo }}</p>
+    </div>
+
+    <div class="section">
+        <p class="label">¿Se cuenta con internet?:</p>
+        <p>{{ solicitud.get_internet_display }}</p>  <!-- ¡Usa get_internet_display! -->
+    </div>
+    
+    <!-- Agrega más campos según tu modelo -->
+</body>
+</html>
